@@ -16,6 +16,15 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 {
     ui->setupUi(this);
 
+    /*Style sheet file */
+    QFile filestyle(":/style/stylesheet.css");
+
+    if (filestyle.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        this->setStyleSheet(filestyle.readAll());
+        filestyle.close();
+    }
+
     // Initialize last path and file name from settings
     QSettings settings;
     m_lastPath = settings.value("lastPath", QDir::currentPath()).toString();
