@@ -14,6 +14,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
+find_package(Qt5WinExtras REQUIRED)
+include_directories(${Qt5WinExtras_INCLUDE_DIRS})
+
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
